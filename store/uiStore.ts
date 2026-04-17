@@ -1,0 +1,33 @@
+// ============================================================
+// Vision Glass & Interior — UI State Store (Zustand)
+// ============================================================
+
+import { create } from 'zustand';
+
+interface UiState {
+  sidebarOpen: boolean;
+  mobileSidebarOpen: boolean;
+  activeModal: string | null;
+  modalData: Record<string, unknown> | null;
+
+  toggleSidebar: () => void;
+  setSidebarOpen: (open: boolean) => void;
+  toggleMobileSidebar: () => void;
+  setMobileSidebarOpen: (open: boolean) => void;
+  openModal: (id: string, data?: Record<string, unknown>) => void;
+  closeModal: () => void;
+}
+
+export const useUiStore = create<UiState>((set) => ({
+  sidebarOpen: true,
+  mobileSidebarOpen: false,
+  activeModal: null,
+  modalData: null,
+
+  toggleSidebar: () => set((s) => ({ sidebarOpen: !s.sidebarOpen })),
+  setSidebarOpen: (open) => set({ sidebarOpen: open }),
+  toggleMobileSidebar: () => set((s) => ({ mobileSidebarOpen: !s.mobileSidebarOpen })),
+  setMobileSidebarOpen: (open) => set({ mobileSidebarOpen: open }),
+  openModal: (id, data) => set({ activeModal: id, modalData: data || null }),
+  closeModal: () => set({ activeModal: null, modalData: null }),
+}));
