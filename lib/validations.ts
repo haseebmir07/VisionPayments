@@ -3,7 +3,7 @@
 // ============================================================
 
 import { z } from 'zod';
-import { PAYMENT_MODES, USER_ROLES, DEPARTMENTS } from '@/types';
+import { PAYMENT_MODES, DEPARTMENTS } from '@/types';
 
 // ─── Auth Schemas ────────────────────────────────────────────
 

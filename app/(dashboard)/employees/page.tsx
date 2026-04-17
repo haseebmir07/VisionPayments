@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { useEmployees, useCreateEmployee, useDeleteEmployee } from '@/hooks/useEmployees';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
-import { Card, Badge, EmptyState } from '@/components/ui/Card';
+import { Badge, EmptyState } from '@/components/ui/Card';
 import { Modal } from '@/components/ui/Modal';
 import { Table } from '@/components/ui/Table';
 import { EmployeeForm } from '@/components/employees/EmployeeForm';
@@ -34,8 +34,9 @@ export default function EmployeesPage() {
     try {
       await createMutation.mutateAsync(formData);
       setShowAddModal(false);
-    } catch (error: any) {
-      alert(error.message || 'An error occurred while creating the employee');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'An error occurred while creating the employee';
+      alert(message);
     }
   };
 

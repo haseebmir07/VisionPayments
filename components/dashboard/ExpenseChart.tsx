@@ -13,7 +13,6 @@ import {
   Tooltip,
   ResponsiveContainer,
   CartesianGrid,
-  Legend,
 } from 'recharts';
 import { formatDate, toRupees } from '@/lib/utils';
 import type { DailySpend } from '@/types';

@@ -2,7 +2,7 @@
 // Vision Glass & Interior — PDF Generation Logic
 // ============================================================
 
-import { formatDate, toRupees, formatCurrency } from '@/lib/utils';
+import { formatDate, formatCurrency } from '@/lib/utils';
 import type { IExpensePopulated } from '@/types';
 
 export interface PdfReportData {
